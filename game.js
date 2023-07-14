@@ -117,10 +117,7 @@ function updateStatus() {
 
 function scangamepads() {
   const gamepads = navigator.getGamepads();
-  document.querySelector("#noDevices").style.display = gamepads.filter(Boolean)
-    .length
-    ? "none"
-    : "block";
+  //document.querySelector("#noDevices").style.display = gamepads.filter(Boolean).length ? "none" : "block";
   for (const gamepad of gamepads) {
     if (gamepad) {
       // Can be null if disconnected during the session
