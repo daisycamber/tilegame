@@ -1,4 +1,4 @@
-const controllers = {};
+const gamepads = {};
 function jump(pad) {
   pad.vibrationActuator.playEffect("dual-rumble", {
     startDelay: 0,
@@ -10,9 +10,34 @@ function jump(pad) {
 function move(x, y) {
 
 }
+
+
+function gamepadHandler(event, connected) {
+  const gamepad = event.gamepad;
+  if (connected) {
+    gamepads[gamepad.index] = gamepad;
+  } else {
+    delete gamepads[gamepad.index];
+  }
+}
+
+window.addEventListener(
+  "gamepadconnected",
+  (e) => {
+    gamepadHandler(e, true);
+  },
+  false,
+);
+window.addEventListener(
+  "gamepaddisconnected",
+  (e) => {
+    gamepadHandler(e, false);
+  },
+  false,
+);
 function updateGamepadButtons() {
   try {
-    navigator.getGamepads().forEach((gamepad) => {
+    gamepads.forEach((gamepad) => {
       if (gamepad.connected) {
         gamepad.buttons.forEach((button, i) => {
           let pressed = button === 1.0;
