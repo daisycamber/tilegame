@@ -37,7 +37,7 @@ window.addEventListener(
 );
 function updateGamepadButtons() {
   try {
-    for(gamepad of gamepads) {
+    for(var gamepad of gamepads) {
       if (gamepad.connected) {
         gamepad.buttons.forEach((button, i) => {
           let pressed = button === 1.0;
