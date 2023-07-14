@@ -39,6 +39,7 @@ function updateGamepadButtons() {
   try {
     for(var gamepad of gamepads) {
       if (gamepad.connected) {
+        var p = false;
         gamepad.buttons.forEach((button, i) => {
           let pressed = button === 1.0;
           let val = button;
@@ -47,9 +48,12 @@ function updateGamepadButtons() {
             val = val.value;
           }
           if(pressed) {
-           jump(gamepad);
+            p = true;
           }
-        })
+        });
+        if(p) {
+          jump(gamepad);
+        }
       } 
     }
   } catch(error) {
