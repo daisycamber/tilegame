@@ -1,11 +1,6 @@
 const gamepads = [];
 function jump(pad) {
-  pad.vibrationActuator.playEffect("dual-rumble", {
-    startDelay: 0,
-    duration: 200,
-    weakMagnitude: 1.0,
-    strongMagnitude: 1.0,
-  });
+  pad.hapticActuators[0].pulse(1.0, 200);
 }
 function move(x, y) {
 
