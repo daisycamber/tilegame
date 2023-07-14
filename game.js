@@ -11,20 +11,25 @@ function move(x, y) {
 
 }
 function updateGamepadButtons() {
-  navigator.getGamepads().forEach((gamepad) => {
-    if (gamepad.connected) {
-      gamepad.buttons.forEach((button, i) => {
-        let pressed = button === 1.0;
-        let val = button;
-        if (typeof button === "object") {
-          pressed = val.pressed;
-          val = val.value;
-        }
-        if(pressed) {
-         jump(gamepad);
-        }
-      })
-    } 
-  });
+  try {
+    navigator.getGamepads().forEach((gamepad) => {
+      if (gamepad.connected) {
+        gamepad.buttons.forEach((button, i) => {
+          let pressed = button === 1.0;
+          let val = button;
+          if (typeof button === "object") {
+            pressed = val.pressed;
+            val = val.value;
+          }
+          if(pressed) {
+           jump(gamepad);
+          }
+        })
+      } 
+    });
+  } catch(error) {
+    var e = document.body.appendChild("div");
+    e.innerHtml = e;
+  }
 }
 setInterval(updateGamepadButtons, 500);
