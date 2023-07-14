@@ -1,4 +1,4 @@
-const gamepads = {};
+const gamepads = [];
 function jump(pad) {
   pad.vibrationActuator.playEffect("dual-rumble", {
     startDelay: 0,
