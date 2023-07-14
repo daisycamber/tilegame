@@ -1,6 +1,6 @@
 const controllers = {};
-function jump() {
-  controllers[0].vibrationActuator.playEffect("dual-rumble", {
+function jump(pad) {
+  pad.vibrationActuator.playEffect("dual-rumble", {
     startDelay: 0,
     duration: 200,
     weakMagnitude: 1.0,
