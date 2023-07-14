@@ -82,7 +82,6 @@ function updateStatus() {
       const b = buttons[i];
       let pressed = button === 1.0;
       let val = button;
-      jump();
       if (typeof button === "object") {
         pressed = val.pressed;
         val = val.value;
