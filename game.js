@@ -107,7 +107,7 @@ function updateStatus() {
       const a = axes[i];
       a.textContent = `${i}: ${axis.toFixed(4)}`;
       a.setAttribute("value", axis + 1);
-      ax == 0 ? x += axis.toFixed(4); : y += axis.toFixed(4);
+      ax == 0 ? x += axis.toFixed(4) : y += axis.toFixed(4);
       ax++;
     });
   });
