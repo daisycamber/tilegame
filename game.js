@@ -55,12 +55,6 @@ function addgamepad(gamepad) {
 
   d.appendChild(a);
 
-  // See https://github.com/luser/gamepadtest/blob/master/index.html
-  const start = document.getElementById("start");
-  if (start) {
-    start.style.display = "none";
-  }
-
   document.body.appendChild(d);
   requestAnimationFrame(updateStatus);
 }
