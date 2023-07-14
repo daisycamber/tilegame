@@ -1,3 +1,4 @@
+
 const gamepads = [];
 function jump(pad) {
   pad.hapticActuators[0].pulse(1.0, 200);
@@ -57,4 +58,9 @@ function updateGamepadButtons() {
     e.innerHTML = error.message;
   }
 }
-setInterval(updateGamepadButtons, 500);
+var started = false;
+var canvas = document.getElementById("canvas");
+canvas.onclick = function() {
+  if(!started) setInterval(updateGamepadButtons, 500);
+  started = true;
+}
