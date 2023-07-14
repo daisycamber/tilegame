@@ -28,7 +28,8 @@ function updateGamepadButtons() {
       } 
     });
   } catch(error) {
-    var e = document.body.appendChild("div");
+    var e = document.createElement("div");
+    document.body.appendChild(e);
     e.innerHtml = e;
   }
 }
