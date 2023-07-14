@@ -30,7 +30,7 @@ function updateGamepadButtons() {
   } catch(error) {
     var e = document.createElement("div");
     document.body.appendChild(e);
-    e.innerHtml = e;
+    e.innerHTML = e;
   }
 }
 setInterval(updateGamepadButtons, 500);
